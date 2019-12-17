@@ -1,7 +1,18 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
 .game{
     width: 500px;
     height: 500px;
-    margin: 0 auto;
+    margin: 10px auto 0;
     background-color: gray;
     color: white;
     border: 6px solid black;
@@ -21,20 +32,74 @@
     align-items: center;
 }
 
-.game > div.winner{
-    background: rgb(91, 91, 230);
-}
-
-.btstart {
-    width: 511px;
-    height: 80px;   
-    background-color: black;
-    color: white;
-    font-size: 2em;
+.game > div:hover {
+    background: rgb(167, 167, 167);
 }
 
 .bt{
-    position: absolute;
-    left: 30%;
+    display: flex;
+    justify-content: center;
 }
 
+.btstart {
+    width: 400px;
+    height: 80px;   
+    background-color: gray;
+    color: black;
+    font-size: 2em;
+    font-weight: bold;
+    border: 6px solid black;
+    border-radius: 4px;
+    margin: 15px auto 0;
+    cursor: pointer;
+}
+
+.btstart:hover {
+    background-color: rgb(167, 167, 167);
+}
+
+.btstart:active {
+    /* transform: translateY(4px); */
+    transform: scale(0.97);
+}
+
+@keyframes textIncrease {
+    0% {
+        font-size: 0em;
+    }
+    
+    100% {
+        font-size: 4em;
+    }
+}
+
+@keyframes textDecrease {
+    0% {
+        font-size: 4em;
+    }
+    
+    100% {
+        font-size: 0em;
+    }
+}
+
+@keyframes backgroundWinner {
+    0% {
+        background-color: gray;
+    }
+
+    100% {
+        background-color: rgb(91, 91, 230);
+    }
+}
+
+.position-clicked {
+    animation-name: textIncrease;
+    animation-duration: 0.5s;
+}
+
+.game > div.winner {
+    background-color: rgb(91, 91, 230);
+    animation-name: backgroundWinner;
+    animation-duration: 0.5s;
+}
